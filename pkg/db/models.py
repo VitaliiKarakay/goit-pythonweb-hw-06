@@ -47,11 +47,12 @@ class Subject(Base):
 
 class Grade(Base):
     __tablename__ = "grades"
-    id = Column(Integer, primary_key=True)
-    student_id = Column(Integer, ForeignKey("students.id"), nullable=False)
-    subject_id = Column(Integer, ForeignKey("subjects.id"), nullable=False)
-    value = Column(Float, nullable=False)
-    created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    student_id = Column(Integer, ForeignKey("students.id"))
+    subject_id = Column(Integer, ForeignKey("subjects.id"))
+    value = Column(Integer, nullable=False)
+    created_at = Column(DateTime, nullable=False)
 
     student = relationship("Student", back_populates="grades")
     subject = relationship("Subject", back_populates="grades")
