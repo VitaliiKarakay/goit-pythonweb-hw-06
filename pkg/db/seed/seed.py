@@ -4,7 +4,7 @@ from faker import Faker
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
-from models import Base, Group, Student, Teacher, Subject, Grade
+from pkg.db.models import Base, Group, Student, Teacher, Subject, Grade
 
 load_dotenv()
 DATABASE_URL = os.environ.get("DATABASE_URL")
@@ -57,7 +57,7 @@ def seed():
             n = random.randint(5, 20)
             for _ in range(n):
                 subj = random.choice(subjects)
-                value=random.randint(1, 100),
+                value=random.randint(60, 100),
                 g = Grade(student=st, subject=subj, value=value, created_at=fake.date_time_this_decade())
                 session.add(g)
         session.commit()
