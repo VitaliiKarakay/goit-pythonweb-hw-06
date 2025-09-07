@@ -49,9 +49,35 @@ python pkg/db/seed/seed.py
 ## 7. Query examples
 Run query examples:
 ```bash
-python -c "from pkg.requests import select_1; print(select_1())"
-python -c "from pkg.requests import select_2; print(select_2(1))"
-python -c "from pkg.requests import select_3; print(select_3())"
+# 1. Top 5 students with the highest average score
+python -c "from pkg.db.requests import select_1; print(select_1())"
+
+# 2. Student with the highest average score in a subject
+python -c "from pkg.db.requests import select_2; print(select_2('Math'))"
+
+# 3. Average score in groups for a subject
+python -c "from pkg.db.requests import select_3; print(select_3('Math'))"
+
+# 4. Average score for all students
+python -c "from pkg.db.requests import select_4; print(select_4())"
+
+# 5. Courses taught by a specific teacher
+python -c "from pkg.db.requests import select_5; print(select_5(1))"
+
+# 6. List of students in a specific group
+python -c "from pkg.db.requests import select_6; print(select_6(1))"
+
+# 7. Grades of students in a group for a subject
+python -c "from pkg.db.requests import select_7; print(select_7(1, 'Math'))"
+
+# 8. Average score given by a specific teacher
+python -c "from pkg.db.requests import select_8; print(select_8(1))"
+
+# 9. List of courses attended by a specific student
+python -c "from pkg.db.requests import select_9; print(select_9(1))"
+
+# 10. List of courses taught to a student by a specific teacher
+python -c "from pkg.db.requests import select_10; print(select_10(1, 1))"
 ```
 
 ---
